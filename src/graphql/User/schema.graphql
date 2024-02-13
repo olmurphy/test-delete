@@ -1,0 +1,55 @@
+type Query {
+    getAllUsers: GetAllUsersResponse
+    getUserById(userId: String!): GetUserByIdResponse
+}
+
+type Mutation {
+    updateUser(user: UpdateUserInput!): UpdateUserResponse
+    deleteUser(userId: String!): DeleteUserResponse
+    addUser(user: AddUserInput!): AddUserResponse
+}
+
+type User {
+    userId: String!
+    name: String!
+    surname: String!
+    email: String!
+}
+
+input UpdateUserInput {
+    userId: String!
+    name: String!
+    surname: String!
+    email: String!
+}
+
+input AddUserInput {
+    name: String!
+    surname: String!
+    email: String!
+}
+
+type GetAllUsersResponse implements GenericResponse {
+    status: Status!
+    data: [User]!
+}
+
+type UpdateUserResponse implements GenericResponse {
+    status: Status!
+    data: User!
+}
+
+type GetUserByIdResponse implements GenericResponse {
+    status: Status!
+    data: User!
+}
+
+type DeleteUserResponse implements GenericResponse {
+    status: Status!
+    data: String!
+}
+
+type AddUserResponse implements GenericResponse {
+    status: Status!
+    data: User!
+}

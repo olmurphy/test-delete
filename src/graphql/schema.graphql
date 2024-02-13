@@ -1,0 +1,15 @@
+enum Status {
+    Success,
+    Error
+}
+
+type ErrorObject {
+    code: Int
+    description: String
+    message: String
+}
+
+interface GenericResponse {
+    status: Status!
+}
+# asdf
